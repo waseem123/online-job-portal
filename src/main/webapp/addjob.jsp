@@ -8,7 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Add Job</title>
+	<title>Post a Job</title>
 	<style type="text/css">
         td{
             border: 1px solid black;
@@ -31,17 +31,26 @@
 	</style>
 </head>
 <body>
-    <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="admin-header.jsp"></jsp:include>
     <h2>Job Information</h2>
-    <c:if test="${error==true || success==true}">
-        ${message}
+    <c:if test="${userType!=1}">
+        <c:redirect url = "/index.jsp"/>
     </c:if>
 	<div class="formdiv">
-		<form action="add" method="POST">
+		<form action="post-job" method="post">
 			<table>
 				<thead>
 					<tr>
-						<th colspan="2"><h3>Add new Job</h3></th>
+						<th colspan="2"><h3>Post new Job</h3></th>
+						<c:if test="${not empty success}">
+						<p>${success}</p>
+						<c:remove var="success"/>
+						</c:if>
+						
+						<c:if test="${not empty error}">
+						<p>${error}</p>
+						<c:remove var="error"/>
+						</c:if>
 					</tr>
 				</thead>
 				<tbody>
@@ -57,8 +66,14 @@
 						<td>
 							<label for="job_type">Job Type</label>
 						</td>
+						
 						<td>
-							<input type="text" id="job_type" class="input" name="job_type">
+							<select id="job_type" name="job_type" style="width:300px;padding:8px">
+                                <option value="">Select Type</option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Remote">Remote</option>
+                            </select>
 						</td>
 					</tr>
 					
@@ -70,21 +85,36 @@
                         	<input type="text" id="job_salary" class="input" name="job_salary">
                         </td>
                     </tr>
+                                      
+                    <tr>
+                        <td>
+                            <label for="job_description">Description</label>
+                        </td>
+                        <td>
+                        	<input type="text" id="job_description" class="input" name="job_description">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label for="job_location">Job Location</label>
+                        </td>
+                        <td>
+                        	<input type="text" id="job_location" class="input" name="job_location">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label for="job_last_date">Last Date To Apply</label>
+                        </td>
+                        <td>
+                        	<input type="date" id="job_last_date" class="input" name="job_last_date">
+                        </td>
+                    </tr>
+					
 					<tr>
-						<td>
-							<label for="job_category">Select Category</label>
-						</td>
-						<td>
-							<select id="job_category" name="job_category" class="input">
-                                <option value="">Select Trainer</option>
-                                <c:forEach items="${trainers}" var="trainer">
-                                    <option value="${trainer.trainerId}">${trainer.trainerName}</option>
-                                </c:forEach>
-                            </select>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2"><button type="submit">Submit</button></td>
+						<td colspan="2"><button type="submit">POST</button></td>
 					</tr>
 				</tbody>
 			</table>

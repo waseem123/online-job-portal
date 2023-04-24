@@ -35,8 +35,8 @@ pageEncoding="UTF-8"%>
     <table>
         <tbody>
             <tr>
-				<th><a href="/onlinejobportal/viewjob.jsp">Home</a></th>
-                <th><a href="/onlinejobportal/get-applications">Applied Jobs</a></th>
+				<th><a href="/onlinejobportal/alljobs.jsp">Home</a></th>
+                <th><a href="/onlinejobportal/addjob.jsp">Add Job</a></th>
                 <th><a href="/onlinejobportal/logout">Log Out</a></th>
                 <th colspan="5"><u style="text-align:right">Welcome, ${userName}</u></th>
             </tr>

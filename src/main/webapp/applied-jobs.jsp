@@ -27,11 +27,8 @@
     </head>
 
     <body>
-        <jsp:include page="admin-header.jsp" ></jsp:include>
-        <c:if test="${userType!=1}">
-	        <c:redirect url = "/index.jsp"/>
-	    </c:if>
-        <h2>All Jobs</h2>
+        <jsp:include page="header.jsp" ></jsp:include>
+        <h2>Applied Jobs</h2>
         <c:if test="${not empty success}">
 			<p>${success}</p>
 			<c:remove var="success"/>
@@ -44,44 +41,35 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Application ID</th>
+                    <th>Job ID</th>
                     <th>Job Title</th>
                     <th>Category</th>
                     <th>Salary</th>
                     <th>Location</th>
                     <th>Description</th>
                     <th>Last Date To Apply</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             
-            	<%
-            		JobDAO dao = new JobDAO(DBConnect.getConnection());
-            		List<Job> jobList = dao.getAllJobs();
-            		pageContext.setAttribute("jobList", jobList);
-            		
-            	%>
-                 <c:forEach items="${jobList}" var="job">
+            	
+                 <c:forEach items="${jobs}" var="job">
                 <tr>
+                    <td>${job.applicationId}</td>
                     <td>${job.jobId}</td>
                     <td>${job.jobTitle}</td>
                     <td>${job.jobType}</td>
                     <td>${job.jobSalary}</td>
-                    <td>${job.job_location}</td>
-                    <td>${job.job_description}</td>
+                    <td>${job.jobLocation}</td>
+                    <td>${job.jobDescription}</td>
                     <td>${job.jobLastDate}</td>
-                    <td>
-                        <a href="editjob.jsp?id=${job.jobId}"><button>Edit</button></a>
-                        <a href="delete?id=${job.jobId}"><button>Delete</button></a>
-<%--                         <a href="details/${job.jobId}"><button>View</button></a>
- --%>                    </td>
                 </tr>
                 </c:forEach>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8">Total <%=jobList.size()%> Jobs Found.</td>
+                    <td colspan="8">Total ${size} Jobs Applied.</td>
                 </tr>
             </tfoot>
         </table>
