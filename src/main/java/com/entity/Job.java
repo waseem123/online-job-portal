@@ -80,22 +80,22 @@ public class Job {
 		this.jobLastDate = jobLastDate;
 	}
 
-	public String getjob_description() {
+	public String getjobDescription() {
 		return job_description;
 	}
 
 
-	public void setjob_description(String job_description) {
+	public void setjobDescription(String job_description) {
 		this.job_description = job_description;
 	}
 
 
-	public String getJob_location() {
+	public String getJobLocation() {
 		return job_location;
 	}
 
 
-	public void setJob_location(String job_location) {
+	public void setJobLocation(String job_location) {
 		this.job_location = job_location;
 	}
 

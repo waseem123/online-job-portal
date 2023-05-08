@@ -29,7 +29,7 @@ public class UserLogin extends HttpServlet{
 			session.setAttribute("userId", user.getUserId());
 			session.setAttribute("userType",2);
 			session.setAttribute("userName", user.getUserName());
-			resp.sendRedirect("viewjob.jsp");
+			resp.sendRedirect("joblisting.jsp");
 		}else {
 			resp.sendRedirect("index.jsp");
 		}

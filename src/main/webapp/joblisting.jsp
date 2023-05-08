@@ -55,8 +55,13 @@
 			<c:remove var="error"/>
 		</c:if>
        	
-       
-		<c:forEach items="${jobs}" var="job">
+       <%
+       		JobDAO dao = new JobDAO(DBConnect.getConnection());
+       		List<Job> jobList = dao.getAllJobs();
+       		pageContext.setAttribute("jobList", jobList);
+       		
+       	%>
+		<c:forEach items="${jobList}" var="job">
 	       	<div>
 	       		
 	       		<h3>${job.jobTitle}</h3>
@@ -75,6 +80,6 @@
 	       	<hr>
 		</c:forEach>
 		  
-        <p>Total ${jobs.size()} Jobs Found.</p>
+        <p>Total ${jobList.size()} Jobs Found.</p>
     </body>
 </html>

@@ -8,7 +8,7 @@ public class DBConnect {
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/db_jobportal","root",""); 
+			conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/db_jobportal","root","Simplilearn"); 
 		}catch(Exception ex) {
 			System.out.println("SQL EXCEPTOIN - "+ex.getMessage());
 		}

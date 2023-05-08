@@ -25,8 +25,8 @@ public class JobDAO {
 			ps.setString(1, job.getJobTitle());
 			ps.setString(2, job.getJobType());
 			ps.setInt(3, job.getJobSalary());
-			ps.setString(4, job.getjob_description());
-			ps.setString(5, job.getJob_location());
+			ps.setString(4, job.getjobDescription());
+			ps.setString(5, job.getJobLocation());
 			ps.setString(6, job.getJobLastDate());
 			int i=ps.executeUpdate();
 			if(i==1)
@@ -46,8 +46,8 @@ public class JobDAO {
 			ps.setString(1, job.getJobTitle());
 			ps.setString(2, job.getJobType());
 			ps.setInt(3, job.getJobSalary());
-			ps.setString(4, job.getjob_description());
-			ps.setString(5, job.getJob_location());
+			ps.setString(4, job.getjobDescription());
+			ps.setString(5, job.getJobLocation());
 			ps.setString(6, job.getJobLastDate());
 			ps.setInt(7, job.getJobId());
 			int i=ps.executeUpdate();

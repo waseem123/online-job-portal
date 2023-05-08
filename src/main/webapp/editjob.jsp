@@ -107,7 +107,7 @@
                             <label for="job_description">Description</label>
                         </td>
                         <td>
-                        	<input type="text" id="job_description" class="input" name="job_description" value="${job.job_description}">
+                        	<input type="text" id="job_description" class="input" name="job_description" value="${job.jobDescription}">
                         </td>
                     </tr>
                     
@@ -116,7 +116,7 @@
                             <label for="job_location">Job Location</label>
                         </td>
                         <td>
-                        	<input type="text" id="job_location" class="input" name="job_location" value="${job.job_location}">
+                        	<input type="text" id="job_location" class="input" name="job_location" value="${job.jobLocation}">
                         </td>
                     </tr>
                     

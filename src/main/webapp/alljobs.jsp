@@ -68,8 +68,8 @@
                     <td>${job.jobTitle}</td>
                     <td>${job.jobType}</td>
                     <td>${job.jobSalary}</td>
-                    <td>${job.job_location}</td>
-                    <td>${job.job_description}</td>
+                    <td>${job.jobLocation}</td>
+                    <td>${job.jobDescription}</td>
                     <td>${job.jobLastDate}</td>
                     <td>
                         <a href="editjob.jsp?id=${job.jobId}"><button>Edit</button></a>
